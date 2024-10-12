@@ -1,0 +1,21 @@
+# pgAdmin host IP : 192.168.20.5
+# Database server IP: 192.168.20.6
+# My postgresql version is 14
+
+1. Check the server firewall, if not allow then allow it.
+
+2. vi /etc/postgresql/14/main/postgresql.conf
+# add bellow line
+listen_addresses = '*'
+
+3. vi /etc/postgresql/14/main/pg_hba.conf
+# add bellow line
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+host    all             all             192.168.20.5/32         md5
+
+4. Set the postgres user password
+root@Ubuntu:/home/user# sudo su - postgres
+postgres@Ubuntu:~$ psql
+postgres=# \password postgres
+
+5. Open the pgAdmin and try to connect
