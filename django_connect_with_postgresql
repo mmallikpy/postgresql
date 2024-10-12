@@ -1,0 +1,16 @@
+pipenv install psycopg2-binary
+or
+pip install psycopg2-binary
+
+
+  
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",        
+        "NAME": "login",         # Database name
+        'USER': 'postgres',      # Database user
+        'PASSWORD': '123456',    # Password
+        'HOST': '192.168.20.6',  # Server address
+        'PORT': '5432',          # Postgresql port
+    }
+}
