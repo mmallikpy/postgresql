@@ -1,23 +1,27 @@
 import psycopg2
 
-data = open("output.csv", "r", encoding="UTF-8")
+data = open("output.csv", "r")
 
 conn = psycopg2.connect(
     database="practice",
-    user='practice',
-    password='1...3',
-    host='192.168.x.6',
+    user='postgres',
+    password='123456',
+    host='192.168.20.6',
     port='5432'
 )
 
 cursor = conn.cursor()
 
+
+
 for x in data:
     passw, email, user = x.split(',')
+    user = user.strip()
 
     passw = "'" + passw + "'"
     email = "'" + email + "'"
     user = "'" + user + "'"
+    print(passw, email, user)
     cursor.execute(f"INSERT into fieldvpnusers(password, email, username) VALUES ({passw}, {email}, {user})")
 conn.commit()
 conn.close()
