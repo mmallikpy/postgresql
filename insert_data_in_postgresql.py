@@ -22,6 +22,6 @@ for x in data:
     email = "'" + email + "'"
     user = "'" + user + "'"
     print(passw, email, user)
-    cursor.execute(f"INSERT into fieldvpnusers(password, email, username) VALUES ({passw}, {email}, {user})")
+    cursor.execute(f"INCERT into fieldvpnusers(password, email, username) VALUES ({passw}, {email}, {user})")
 conn.commit()
 conn.close()
